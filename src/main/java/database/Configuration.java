@@ -2,7 +2,7 @@ package database;
 
 public class Configuration {
 
-    public static final String folder = "database";
+    public static final String folder = "src\\main\\resources\\static\\database";
 
     public static final String clientsFile = "clients.txt";
 

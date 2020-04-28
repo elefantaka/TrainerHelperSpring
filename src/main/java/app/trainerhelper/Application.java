@@ -1,5 +1,10 @@
-package service;
+package app.trainerhelper;
 
+import org.springframework.stereotype.Service;
+import service.ClientService;
+import service.EmployeeService;
+import service.GroupLessonService;
+import service.IApplication;
 import systemmodel.Client;
 import systemmodel.GroupLesson;
 import systemmodel.Schedule;
@@ -7,6 +12,7 @@ import systemmodel.Schedule;
 import java.io.IOException;
 import java.util.ArrayList;
 
+@Service //bean
 public class Application implements IApplication {
 
     private ClientService clientService;
@@ -14,12 +20,13 @@ public class Application implements IApplication {
     private GroupLessonService groupLessonService;
     private Schedule schedule;
 
-    public Application() throws IOException, ClassNotFoundException {
+    private Application() throws IOException, ClassNotFoundException {
 
         clientService = new ClientService();
         employeeService = new EmployeeService();
         schedule = new Schedule();
-
+        groupLessonService = new GroupLessonService();
+        employeeService = new EmployeeService();
     }
 
     public ArrayList<GroupLesson> getSchedule() throws IOException, ClassNotFoundException {
@@ -41,6 +48,7 @@ public class Application implements IApplication {
     }
 
     public void addNewClient(Client client) throws IOException {
+
         clientService.addAndSaveClient(client);
     }
 }

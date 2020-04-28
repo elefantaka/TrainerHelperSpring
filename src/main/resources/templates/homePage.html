@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trainer Helper</title>
+</head>
+<body>
+<h1>Schedule</h1>
+<p th:text="${groupLessons}"></p>
+<table>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="lesson: ${groupLessons}">
+        <a href='/lessonDetails?id="${lesson.getId()}"'>
+        <td th:text="${lesson.getId()}">  </td>
+        <td th:text="${lesson.getEmployee()}"></td>
+        <td th:text="${lesson.getLesson()}"></td>
+        <td th:text="${lesson.getDate()}"></td>
+        </a>
+    </tr>
+
+</table>
+
+<th>
+
+</th>
+
+</body>
+</html>

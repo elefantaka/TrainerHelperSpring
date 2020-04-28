@@ -1,5 +1,6 @@
 package systemmodel;
 
+import database.ClientFile;
 import database.GroupLessonFile;
 import service.GroupLessonService;
 
@@ -10,17 +11,15 @@ import java.util.ArrayList;
 
 public class Schedule {
     private GroupLessonService groupLessonService;
-    private GroupLessonFile groupLessonFile;
 
     //show lesson
 
     public ArrayList<GroupLesson> getView() throws IOException, ClassNotFoundException {
 
+        GroupLessonFile groupLessonFile = new GroupLessonFile();
         return groupLessonFile.readGroupLesson(); //temporary show whole group lessons, later it will show one
     }
-    //TO CHECK!!! public GroupLesson findLesson(int id) - DONE IN GroupLessonService
 
-    //TO CHECK!!!
     public void registerClient(Client client, int idLesson) throws IOException, ClassNotFoundException {
 
         GroupLessonService groupLessonService = new GroupLessonService();
@@ -30,5 +29,9 @@ public class Schedule {
 
         groupLessonService.addAndSaveGroupLesson(foundLesson);
     }
-    //dodawanie zajec
+
+    public void addAndSave(GroupLesson groupLesson) throws IOException {
+
+        groupLessonService.addAndSaveGroupLesson(groupLesson);
+    }
 }
