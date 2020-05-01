@@ -18,11 +18,7 @@ public class LessonDate implements Serializable {
 
     @Override
     public String toString() {
-        return "LessonDate{" +
-                "year=" + year +
-                ", month=" + month +
-                ", day=" + day +
-                ", hour=" + hour +
-                '}';
+        String result = hour + " " + day + "." + month + "." + year;
+        return result;
     }
 }

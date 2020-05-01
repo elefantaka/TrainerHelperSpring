@@ -7,12 +7,8 @@ import service.GroupLessonService;
 import java.io.IOException;
 import java.util.ArrayList;
 
-//TO CHECK!!!
-
 public class Schedule {
     private GroupLessonService groupLessonService;
-
-    //show lesson
 
     public ArrayList<GroupLesson> getView() throws IOException, ClassNotFoundException {
 

@@ -2,10 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lesson details</title>
+    <title>Lesson Details</title>
 </head>
 <body>
-<p th:text="${groupLesson}"></p>
+<h1>Lesson Details</h1>
+<table>
+    <tr>
+        <th>Lesson ID</th>
+        <th>Instructor</th>
+        <th>Lesson</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        <th th:text="${groupLesson.getId()}"> </th>
+        <th th:text="${groupLesson.getEmployee()}"> </th>
+        <th th:text="${groupLesson.getLesson()}"> </th>
+        <th th:text="${groupLesson.getDate()}"> </th>
+    </tr>
+</table>
+
+<h1>Participants</h1>
+<table>
+<tr>
+    <th>Registered</th>
+</tr>
+<tr>
+    <th>TO DOOOO</th>
+</tr>
+</table>
 </body>
 </html>
 

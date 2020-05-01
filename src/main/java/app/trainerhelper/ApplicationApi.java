@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import systemmodel.GroupLesson;
 
 import java.io.IOException;
@@ -44,5 +45,7 @@ public class ApplicationApi {
         return "lessonDetails";
     }
 
-    //postmapping
+    //POSTMAPPING TO DO!!!
 }
+
+//        <th th:text="${groupLesson}"> </th>

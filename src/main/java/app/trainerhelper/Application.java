@@ -1,5 +1,6 @@
 package app.trainerhelper;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import service.ClientService;
 import service.EmployeeService;
@@ -12,13 +13,14 @@ import systemmodel.Schedule;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@Service //bean
+@Service
 public class Application implements IApplication {
 
     private ClientService clientService;
     private EmployeeService employeeService;
     private GroupLessonService groupLessonService;
     private Schedule schedule;
+
 
     private Application() throws IOException, ClassNotFoundException {
 
@@ -34,11 +36,9 @@ public class Application implements IApplication {
         return schedule.getView();
     }
 
-    //TO CHECK
-
     public GroupLesson showLesson(int id){
+
         return groupLessonService.findGroupLesson(id);
-                //schedule.findLesson(id); !!!!!!!!!!!
     }
 
     //enter client and lesson id on the website and then the client could be register
