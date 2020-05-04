@@ -1,6 +1,6 @@
 package tests;
 
-import database.EmployeeFile;
+import dataTXT.EmployeeFile;
 import systemmodel.Employee;
 import systemmodel.KindOfInstructor;
 

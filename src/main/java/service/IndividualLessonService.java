@@ -1,6 +1,6 @@
 package service;
 
-import database.IndividualLessonFile;
+import dataTXT.IndividualLessonFile;
 import systemmodel.IndividualLesson;
 
 import java.io.IOException;

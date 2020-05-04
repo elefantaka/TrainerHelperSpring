@@ -1,7 +1,6 @@
 package systemmodel;
 
-import database.ClientFile;
-import database.GroupLessonFile;
+import dataTXT.GroupLessonFile;
 import service.GroupLessonService;
 
 import java.io.IOException;

@@ -1,8 +1,8 @@
-package app.trainerhelper;
+package database;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClientRepo extends CrudRepository<ClientData, Long> {
+public interface SaveLessonRepo extends CrudRepository<SaveLessonData, Long> {
 }

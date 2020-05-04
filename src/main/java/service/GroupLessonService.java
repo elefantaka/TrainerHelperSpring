@@ -1,6 +1,6 @@
 package service;
 
-import database.GroupLessonFile;
+import dataTXT.GroupLessonFile;
 import systemmodel.GroupLesson;
 
 import java.io.IOException;

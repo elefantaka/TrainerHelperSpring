@@ -1,6 +1,6 @@
 package tests;
 
-import database.GroupLessonFile;
+import dataTXT.GroupLessonFile;
 import systemmodel.*;
 
 import java.io.IOException;

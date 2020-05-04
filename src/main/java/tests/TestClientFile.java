@@ -1,6 +1,6 @@
 package tests;
 
-import database.ClientFile;
+import dataTXT.ClientFile;
 import systemmodel.Client;
 
 import java.io.IOException;
