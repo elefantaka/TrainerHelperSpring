@@ -2,13 +2,11 @@ package database;
 
 import javax.persistence.*;
 
-//my data base
 @Entity
 public class ClientData {
 
     @Id //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement
-    //@ManyToOne - need foreign key
     private Long id;
 
     private String name;

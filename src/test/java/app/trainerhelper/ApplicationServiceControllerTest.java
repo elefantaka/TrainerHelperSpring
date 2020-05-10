@@ -1,5 +1,6 @@
 package app.trainerhelper;
 
+import app.ApplicationController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(ApplicationApi.class)
-public class ApplicationApiTest {
+@WebMvcTest(ApplicationController.class)
+public class ApplicationServiceControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

@@ -1,47 +1,56 @@
 package service;
 
-import dataTXT.ClientFile;
-import systemmodel.Client;
+import database.ClientData;
+import database.ClientRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ClientService {
 
-    private ArrayList<Client> clients = new ArrayList<>();
+    private ClientRepo clientRepo;
+
+    @Autowired
+    public ClientService(ClientRepo clientRepo){
+        this.clientRepo = clientRepo;
+    }
+
+    private Iterable<ClientData> clients = new ArrayList<>();
 
     public ClientService() throws IOException, ClassNotFoundException {
 
-        ClientFile clientFile = new ClientFile();
-        clients = clientFile.readClients();
+        //ClientFile clientFile = new ClientFile();
+        clients = clientRepo.findAll();
+        //clients = clientFile.readClients();
     }
 
-    private int findMaxId(){
+    /*private int findMaxId(){
 
         int maxId = 0;
 
-        for(Client c : clients){
+        for(ClientData c : clients){
             if(c.getId() > maxId){
                 maxId = c.getId();
             }
         }
         return maxId;
-    }
+    }*/
 
-    public void addAndSaveClient(Client client) throws IOException {
+    public void addAndSaveClient(ClientData clientData) throws IOException {
 
-        ClientFile clientFile = new ClientFile();
+        /*ClientFile clientFile = new ClientFile();
 
-        int newId = findMaxId() + 1;
-        client.setId(newId);
+        //int newId = findMaxId() + 1;
+        //client.setId(newId);
 
         clients.add(client);
-        clientFile.saveClients(clients);
+        clientFile.saveClients(clients);*/
     }
 
-    public Client findClient(int idFindClient) {
+    public ClientData findClient(int idFindClient) {
 
-        for(Client c : clients){
+        for(ClientData c : clients){
             if(c.getId() == idFindClient){
                 return c;
             }

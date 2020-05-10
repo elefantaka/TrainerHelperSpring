@@ -1,24 +1,30 @@
 package database;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class SaveLessonData {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincrement
     Long id;
 
-    Long lessonId;
-    Long clientId;
+    @ManyToOne
+    @JoinColumn(name = "groupLesson_id", referencedColumnName = "id")
+    private GroupLessonData groupLessonData;
 
-    public SaveLessonData(Long lessonId, Long clientId) {
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private ClientData clientData;
 
-        this.lessonId = lessonId;
-        this.clientId = clientId;
+    public SaveLessonData(GroupLessonData groupLessonData, ClientData clientData) {
+
+        this.groupLessonData = groupLessonData;
+        this.clientData = clientData;
     }
 
-    public SaveLessonData() {
+    public SaveLessonData(){
+
     }
 
     public Long getId() {
@@ -29,19 +35,28 @@ public class SaveLessonData {
         this.id = id;
     }
 
-    public Long getLessonId() {
-        return lessonId;
+    public GroupLessonData getGroupLessonData() {
+        return groupLessonData;
     }
 
-    public void setLessonId(Long lessonId) {
-        this.lessonId = lessonId;
+    public void setGroupLessonData(GroupLessonData groupLessonData) {
+        this.groupLessonData = groupLessonData;
     }
 
-    public Long getClientId() {
-        return clientId;
+    public ClientData getClientData() {
+        return clientData;
     }
 
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
+    public void setClientData(ClientData clientData) {
+        this.clientData = clientData;
+    }
+
+    @Override
+    public String toString() {
+        return "SaveLessonData{" +
+                "id=" + id +
+                ", groupLessonData=" + groupLessonData +
+                ", clientData=" + clientData +
+                '}';
     }
 }

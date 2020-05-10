@@ -15,12 +15,12 @@
     <tr>
         <th>Lesson ID</th>
         <th>Lesson</th>
-        <th>Date</th>
+        <th>Hour</th>
     </tr>
-    <tr th:each="lesson: ${groupLessons}">
+    <tr th:each="lesson: ${groupLesson}">
         <td th:text="${lesson.getId()}"></td>
-        <td> <a th:text="${lesson.getLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
-        <td th:text="${lesson.getDate()}"></td>
+        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
+        <td th:text="${lesson.getHour()}"></td>
     </tr>
 </table>
 </body>

@@ -7,9 +7,9 @@ public class SportLesson implements Serializable {
     protected int id;
     protected Employee employee;
     protected KindOfLesson lesson;
-    protected LessonDate date;
+    protected String date;
 
-    public SportLesson(int id, Employee employee, KindOfLesson lesson, LessonDate date) {
+    public SportLesson(int id, Employee employee, KindOfLesson lesson, String date) {
         this.id = id;
         this.employee = employee;
         this.lesson = lesson;
@@ -40,16 +40,16 @@ public class SportLesson implements Serializable {
         this.lesson = lesson;
     }
 
-    public LessonDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LessonDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "SportLesson{" +
                 "id=" + id +
                 ", employee=" + employee +

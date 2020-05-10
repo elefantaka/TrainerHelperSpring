@@ -9,13 +9,13 @@ public class EmployeeData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
 
-    protected String name;
-    protected String email;
+    private String name;
+    private String email;
 
     @Enumerated(EnumType.STRING)
-    protected KindOfInstructor instructor;
+    private KindOfInstructor instructor;
 
     public EmployeeData() {
     }
@@ -56,5 +56,15 @@ public class EmployeeData {
 
     public void setInstructor(KindOfInstructor instructor) {
         this.instructor = instructor;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", instructor=" + instructor +
+                '}';
     }
 }

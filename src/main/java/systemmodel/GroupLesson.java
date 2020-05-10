@@ -9,7 +9,7 @@ public class GroupLesson extends SportLesson implements Serializable {
     private int currentGroupSize;
     private Client[] recordedClient;
 
-    public GroupLesson(int id, Employee employee, KindOfLesson lesson, LessonDate date, int maxGroupSize) {
+    public GroupLesson(int id, Employee employee, KindOfLesson lesson, String date, int maxGroupSize) {
         super(id, employee, lesson, date);
         this.maxGroupSize = maxGroupSize;
         currentGroupSize = 0;
@@ -30,7 +30,7 @@ public class GroupLesson extends SportLesson implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "GroupLesson{" + super.toString() +
                 "maxGroupSize=" + maxGroupSize +
                 ", currentGroupSize=" + currentGroupSize +

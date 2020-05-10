@@ -1,4 +1,4 @@
-package app.trainerhelper;
+package app;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -14,21 +14,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @Service
-public class Application implements IApplication {
+public class ApplicationService implements IApplication {
 
-    private ClientService clientService;
-    private EmployeeService employeeService;
+    //private ClientService clientService;
+    //private EmployeeService employeeService;
     private GroupLessonService groupLessonService;
     private Schedule schedule;
 
 
-    private Application() throws IOException, ClassNotFoundException {
+    private ApplicationService() throws IOException, ClassNotFoundException {
 
-        clientService = new ClientService();
-        employeeService = new EmployeeService();
+        //clientService = new ClientService();
+        //employeeService = new EmployeeService();
         schedule = new Schedule();
-        groupLessonService = new GroupLessonService();
-        employeeService = new EmployeeService();
+        //groupLessonService = new GroupLessonService();
+        //employeeService = new EmployeeService();
     }
 
     public ArrayList<GroupLesson> getSchedule() throws IOException, ClassNotFoundException {
@@ -43,12 +43,12 @@ public class Application implements IApplication {
 
     //enter client and lesson id on the website and then the client could be register
     public void registerClient(int idClient, int idLesson) throws IOException, ClassNotFoundException {
-        Client client = clientService.findClient(idClient);
-        schedule.registerClient(client, idLesson);
+        //Client client = clientService.findClient(idClient);
+        //schedule.registerClient(client, idLesson);
     }
 
     public void addNewClient(Client client) throws IOException {
 
-        clientService.addAndSaveClient(client);
+        //clientService.addAndSaveClient(client);
     }
 }

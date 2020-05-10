@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Clients</title>
 </head>
 <body>
 <h1> Clients </h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="clients: ${clientData}">
+        <td th:text="${clients.getId()}"></td>
+        <td th:text="${clients.getName()}"></td>
+        <td th:text="${clients.getEmail()}"></td>
+    </tr>
+</table>
 </body>
 </html>
