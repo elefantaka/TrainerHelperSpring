@@ -14,7 +14,10 @@ public class GroupLessonData {
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private EmployeeData employeeData;
+
+    @Enumerated(EnumType.STRING)
     private KindOfLesson kindOfLesson;
+
     private String hour;
     private int maxGroupSize;
 

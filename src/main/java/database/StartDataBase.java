@@ -26,21 +26,21 @@ public class StartDataBase {
     @EventListener(ApplicationReadyEvent.class)
     public void runDataBase(){
 
-        ClientData clientData = new ClientData("Renata", "renata@wp.pl");
-        clientRepo.save(clientData);
-
-        ClientData clientData1 = new ClientData("Ewa", "ewa@wp.pl");
-        clientRepo.save(clientData1);
-
-
-        EmployeeData employeeData = new EmployeeData("Kamil", "kamil@wp.pl", KindOfInstructor.BallRoomDancingInstructor);
-        employeeRepo.save(employeeData);
-
-        GroupLessonData groupLessonData = new GroupLessonData(employeeData, KindOfLesson.BallRoomDancing, "13.00", 5);
-        groupLessonRepo.save(groupLessonData);
-
-        SaveLessonData saveLessonData = new SaveLessonData(groupLessonData, clientData);
-        saveLessonRepo.save(saveLessonData);
+//        ClientData clientData = new ClientData("Renata", "renata@wp.pl");
+//        clientRepo.save(clientData);
+//
+//        ClientData clientData1 = new ClientData("Ewa", "ewa@wp.pl");
+//        clientRepo.save(clientData1);
+//
+//
+//        EmployeeData employeeData = new EmployeeData("Kamil", "kamil@wp.pl", KindOfInstructor.BallRoomDancingInstructor);
+//        employeeRepo.save(employeeData);
+//
+//        GroupLessonData groupLessonData = new GroupLessonData(employeeData, KindOfLesson.BallRoomDancing, "13.00", 5);
+//        groupLessonRepo.save(groupLessonData);
+//
+//        SaveLessonData saveLessonData = new SaveLessonData(groupLessonData, clientData);
+//        saveLessonRepo.save(saveLessonData);
     }
 }
 

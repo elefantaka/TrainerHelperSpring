@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'lesson id: ' + ${saveLessonData.groupLessonData.id}" />
+<p th:text="'client id: ' + ${saveLessonData.clientData.id}" />
+<a href="/signUp">Submit another message</a>
+</body>
+</html>

@@ -4,8 +4,7 @@ import database.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import systemmodel.GroupLesson;
 
 import java.io.IOException;
@@ -19,14 +18,16 @@ public class ApplicationController {
     private ClientRepo clientRepo;
     private EmployeeRepo employeeRepo;
     private GroupLessonRepo groupLessonRepo;
+    private SaveLessonRepo saveLessonRepo;
 
     @Autowired
-    public ApplicationController(ApplicationService applicationService, ClientRepo clientRepo, EmployeeRepo employeeRepo, GroupLessonRepo groupLessonRepo) {
+    public ApplicationController(ApplicationService applicationService, ClientRepo clientRepo, EmployeeRepo employeeRepo, GroupLessonRepo groupLessonRepo, SaveLessonRepo saveLessonRepo) {
 
         this.applicationService = applicationService;
         this.clientRepo = clientRepo;
         this.employeeRepo = employeeRepo;
         this.groupLessonRepo = groupLessonRepo;
+        this.saveLessonRepo = saveLessonRepo;
     }
 
     @GetMapping("/home")
@@ -60,9 +61,8 @@ public class ApplicationController {
     public String showClients(Model model){
 
         Iterable<ClientData> clientData = clientRepo.findAll();
-
         model.addAttribute("clientData", clientData);
-        //do listy zapisuje
+
         return "clientsPage";
     }
 
@@ -75,15 +75,28 @@ public class ApplicationController {
         return "employeesPage";
     }
 
+    @GetMapping("/savedLessons")
+    public String showSavedLesson(Model model){
+
+        Iterable<SaveLessonData> saveLessonData = saveLessonRepo.findAll();
+        model.addAttribute("saveLessonData", saveLessonData);
+
+         return "savedLessonsPage";
+    }
+
     @GetMapping("/signUp")
-    public String signUpForLesson(){
+    public String signUp(Model model){
+
+        SaveLessonData saveLessonData = new SaveLessonData();
+        model.addAttribute("saveLessonData", saveLessonData);
+
+        saveLessonRepo.save(saveLessonData);
+
         return "signUpPage";
     }
 
-    /*@PostMapping("/signUp")
-    public String sendSignUp(){
-        //return application.addSignUp();
-    }*/
+    @PostMapping("/signUp")
+    public String signUpSubmit(@ModelAttribute SaveLessonData saveLessonData){
+        return "result";
+    }
 }
-
-//TO DO: postmapping
