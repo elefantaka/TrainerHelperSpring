@@ -31,7 +31,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/home")
-    public String helloController(Model model) throws IOException, ClassNotFoundException {
+    public String helloController(Model model) {
 
         //ArrayList<GroupLesson> groupLessons = applicationService.getSchedule();
         //model.addAttribute("groupLessons", groupLessons);
@@ -44,18 +44,17 @@ public class ApplicationController {
     }
 
     @GetMapping("/lessonDetails")
-    public String showOneLesson(@RequestParam(name = "id") Long id, Model model) throws IOException, ClassNotFoundException {
-
-        //GroupLesson groupLesson = applicationService.showLesson(id);
-        //System.out.println(groupLesson);
-        //model.addAttribute("groupLesson", groupLesson);
+    public String showOneLesson(@RequestParam(name = "id") Long id, Model model, Model model1) {
 
         Optional<GroupLessonData> groupLessonData = groupLessonRepo.findById(id);
-
         model.addAttribute("groupLesson", groupLessonData);
+
+        Iterable<SaveLessonData> saveLessonData = saveLessonRepo.findByGroupLessonData(groupLessonData);
+        model1.addAttribute("saveLessonData", saveLessonData);
 
         return "lessonDetails";
     }
+
 
     @GetMapping("/clients")
     public String showClients(Model model){
@@ -84,19 +83,24 @@ public class ApplicationController {
          return "savedLessonsPage";
     }
 
+
     @GetMapping("/signUp")
-    public String signUp(Model model){
+    public String signUp( Model model){
 
         SaveLessonData saveLessonData = new SaveLessonData();
         model.addAttribute("saveLessonData", saveLessonData);
-
-        saveLessonRepo.save(saveLessonData);
 
         return "signUpPage";
     }
 
     @PostMapping("/signUp")
-    public String signUpSubmit(@ModelAttribute SaveLessonData saveLessonData){
+    public String signUpSubmit(@RequestParam(name = "groupLessonData") GroupLessonData groupLessonData, @RequestParam(name = "clientData") ClientData clientData, @ModelAttribute SaveLessonData saveLessonData){
+
+        saveLessonData.setGroupLessonData(groupLessonData);
+        saveLessonData.setClientData(clientData);
+
+        saveLessonRepo.save(saveLessonData);
+
         return "result";
     }
 }

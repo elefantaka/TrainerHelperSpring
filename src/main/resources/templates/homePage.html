@@ -12,17 +12,24 @@
 <a href="/savedLessons"> Saved Lessons </a>
 <p>  </p>
 <a href="/signUp"> Sign up for lesson </a>
-<h1>Schedule</h1>
-<table>
+
+<table border="1" cellspacing="0">
+    <th colspan="9"> Schedule </th>
     <tr>
-        <th>Lesson ID</th>
-        <th>Lesson</th>
-        <th>Hour</th>
+        <th>Hours</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
     </tr>
     <tr th:each="lesson: ${groupLesson}">
-        <td th:text="${lesson.getId()}"></td>
-        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
         <td th:text="${lesson.getHour()}"></td>
+        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
+        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
+        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
+        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
+        <td> <a th:text="${lesson.getKindOfLesson()}" th:href="@{/lessonDetails(id=${lesson.getId()})}"></a> </td>
     </tr>
 </table>
 </body>

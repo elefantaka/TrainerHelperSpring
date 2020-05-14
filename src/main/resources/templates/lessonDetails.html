@@ -18,14 +18,14 @@
     </tr>
 </table>
 
-<h1>Clients</h1>
+<h1>Registered Clients</h1>
 <table>
-<tr>
-    <th>Registered</th>
-</tr>
-<tr>
-    <th>TO DOOOO</th>
-</tr>
+    <tr>
+        <th>ID</th>
+    </tr>
+    <tr th:each="clients: ${saveLessonData}">
+        <td th:text="${clients.getClientData()}"></td>
+    </tr>
 </table>
 </body>
 </html>

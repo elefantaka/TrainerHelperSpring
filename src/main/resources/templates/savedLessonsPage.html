@@ -8,12 +8,10 @@
 <h1>Saved Lesson Data</h1>
 <table>
     <tr>
-        <th>ID</th>
         <th>Lesson ID</th>
         <th>Client ID</th>
     </tr>
     <tr th:each="saveLessonData: ${saveLessonData}">
-        <td th:text="${saveLessonData.getId()}"></td>
         <td th:text="${saveLessonData.getGroupLessonData()}"></td>
         <td th:text="${saveLessonData.getClientData()}"></td>
     </tr>

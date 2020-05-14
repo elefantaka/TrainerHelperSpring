@@ -8,8 +8,8 @@
 <body>
 <h1>Sign up for lesson</h1>
 <form action="#" th:action="@{/signUp}" th:object="${saveLessonData}" method="post">
-    <p>Lesson ID: <input type="number" th:field="*{groupLessonData}"/></p>
-    <p>Client ID <input type="number" th:field="*{clientData}"/></p>
+    <p>Lesson ID: <input type="number" max="8" th:field="*{groupLessonData}"/></p>
+    <p>Client ID <input type="number" max="6" th:field="*{clientData}"/></p>
     <p> <input type="submit" value="Sumbit"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>
