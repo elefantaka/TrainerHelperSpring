@@ -6,14 +6,30 @@
 </head>
 <body>
 <h1>Saved Lesson Data</h1>
-<table>
+<table border="1" cellspacing="0">
     <tr>
-        <th>Lesson ID</th>
+        <th>Intructor ID</th>
+        <th>Instructor Name</th>
+        <th>Instructor email</th>
+        <th>Instructor</th>
+        <th>Lesson</th>
+        <th>Hour</th>
+        <th>Max group size</th>
         <th>Client ID</th>
+        <th>Client Name</th>
+        <th>Client Email</th>
     </tr>
     <tr th:each="saveLessonData: ${saveLessonData}">
-        <td th:text="${saveLessonData.getGroupLessonData()}"></td>
-        <td th:text="${saveLessonData.getClientData()}"></td>
+        <td th:text="${saveLessonData.groupLessonData.id}"></td>
+        <td th:text="${saveLessonData.groupLessonData.employeeData.name}"></td>
+        <td th:text="${saveLessonData.groupLessonData.employeeData.email}"></td>
+        <td th:text="${saveLessonData.groupLessonData.employeeData.instructor}"></td>
+        <td th:text="${saveLessonData.groupLessonData.kindOfLesson}"></td>
+        <td th:text="${saveLessonData.groupLessonData.hour}"></td>
+        <td th:text="${saveLessonData.groupLessonData.maxGroupSize}"></td>
+        <td th:text="${saveLessonData.clientData.id}"></td>
+        <td th:text="${saveLessonData.clientData.name}"></td>
+        <td th:text="${saveLessonData.clientData.email}"></td>
     </tr>
 </table>
 </body>
