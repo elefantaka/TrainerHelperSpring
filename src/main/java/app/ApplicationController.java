@@ -5,26 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import systemmodel.GroupLesson;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 
 @Controller
 public class ApplicationController {
 
-    private ApplicationService applicationService;
     private ClientRepo clientRepo;
     private EmployeeRepo employeeRepo;
     private GroupLessonRepo groupLessonRepo;
     private SaveLessonRepo saveLessonRepo;
 
     @Autowired
-    public ApplicationController(ApplicationService applicationService, ClientRepo clientRepo, EmployeeRepo employeeRepo, GroupLessonRepo groupLessonRepo, SaveLessonRepo saveLessonRepo) {
+    public ApplicationController(ClientRepo clientRepo, EmployeeRepo employeeRepo, GroupLessonRepo groupLessonRepo, SaveLessonRepo saveLessonRepo) {
 
-        this.applicationService = applicationService;
         this.clientRepo = clientRepo;
         this.employeeRepo = employeeRepo;
         this.groupLessonRepo = groupLessonRepo;
@@ -33,9 +27,6 @@ public class ApplicationController {
 
     @GetMapping("/home")
     public String helloController(Model model) {
-
-        //ArrayList<GroupLesson> groupLessons = applicationService.getSchedule();
-        //model.addAttribute("groupLessons", groupLessons);
 
         Iterable<GroupLessonData> groupLessonData = groupLessonRepo.findAll();
 

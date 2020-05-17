@@ -16,9 +16,17 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-<h1>Result</h1>
-<p th:text="'lesson id: ' + ${saveLessonData.groupLessonData.id}" />
-<p th:text="'client id: ' + ${saveLessonData.clientData.id}" />
-<a href="/signUp">Submit another message</a>
+<div class="py-5">
+<table class="table table-row-cell table-primary table-bordered">
+    <th class="text-center" colspan="9"> Result </th>
+    <tr>
+        <th>Lesson ID</th>
+        <th>Student ID</th>
+    </tr>
+<td th:text="${saveLessonData.groupLessonData.id}"></td>
+<td th:text="${saveLessonData.clientData.id}"></td>
+</table>
+<a class="text-center" href="/signUp">Submit another message</a>
+</div>
 </body>
 </html>
