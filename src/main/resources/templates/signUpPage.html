@@ -13,23 +13,19 @@
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
+<body class="text-center">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-<h1>Sign up for lesson</h1>
-<section class="container-fluid">
-    <section class="row">
-        <section class="col-12 col-sm-6 col-md-3">
+<div class="py-5" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<h1 class="h3 mb-3 font-weight-normal">Sign up for lesson</h1>
 <form class="form-group" action="#" th:action="@{/signUp}" th:object="${saveLessonData}" method="post">
     <div>
-    <p> Lesson ID <input type="number" max="8" th:field="*{groupLessonData}"/></p>
-    <p> Client ID <input type="number" max="6" th:field="*{clientData}"/></p>
+    <p class="py-1 text-center"> Lesson ID <input type="number" max="8" th:field="*{groupLessonData}"/></p>
+    <p class="py-1 text-center"> Client ID <input type="number" max="6" th:field="*{clientData}"/></p>
     <p> <input type="submit" value="Sumbit"/> <input type="reset" value="Reset"/></p>
     </div>
 </form>
-        </section>
-    </section>
-</section>
+</div>
 </body>
 </html>

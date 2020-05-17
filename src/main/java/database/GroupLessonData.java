@@ -3,6 +3,7 @@ package database;
 import systemmodel.KindOfLesson;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class GroupLessonData {
@@ -19,12 +20,14 @@ public class GroupLessonData {
     private KindOfLesson kindOfLesson;
 
     private String hour;
+    private Date date;
     private int maxGroupSize;
 
-    public GroupLessonData(EmployeeData employeeData, KindOfLesson kindOfLesson, String hour, int maxGroupSize) {
+    public GroupLessonData(EmployeeData employeeData, KindOfLesson kindOfLesson, Date date, String hour, int maxGroupSize) {
 
         this.employeeData = employeeData;
         this.kindOfLesson = kindOfLesson;
+        this.date = date;
         this.hour = hour;
         this.maxGroupSize = maxGroupSize;
     }
@@ -56,6 +59,14 @@ public class GroupLessonData {
         this.kindOfLesson = kindOfLesson;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String getHour() {
         return hour;
     }
@@ -78,6 +89,7 @@ public class GroupLessonData {
                 "id=" + id +
                 ", employeeData=" + employeeData +
                 ", kindOfLesson=" + kindOfLesson +
+                ", Date=" + date +
                 ", lessonDate=" + hour +
                 ", maxGroupSize=" + maxGroupSize +
                 '}';

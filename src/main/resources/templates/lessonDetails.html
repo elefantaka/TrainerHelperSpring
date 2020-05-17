@@ -26,6 +26,7 @@
         <th>Lesson</th>
         <th>Hour</th>
         <th>Max Group Size</th>
+        <th>Date</th>
     </tr>
     <tr>
         <th th:text="${groupLesson.get().id}"> </th>
@@ -36,6 +37,8 @@
         <th th:text="${groupLesson.get().kindOfLesson}"> </th>
         <th th:text="${groupLesson.get().hour}"> </th>
         <th th:text="${groupLesson.get().maxGroupSize}"> </th>
+        <th th:text="${groupLesson.get().date}"> </th>
+
     </tr>
 </table>
 

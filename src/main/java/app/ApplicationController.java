@@ -9,6 +9,7 @@ import systemmodel.GroupLesson;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -44,13 +45,13 @@ public class ApplicationController {
     }
 
     @GetMapping("/lessonDetails")
-    public String showOneLesson(@RequestParam(name = "id") Long id, Model model, Model model1) {
+    public String showOneLesson(@RequestParam(name = "id") Long id, Model model) {
 
         Optional<GroupLessonData> groupLessonData = groupLessonRepo.findById(id);
         model.addAttribute("groupLesson", groupLessonData);
 
         Iterable<SaveLessonData> saveLessonData = saveLessonRepo.findByGroupLessonData(groupLessonData);
-        model1.addAttribute("saveLessonData", saveLessonData);
+        model.addAttribute("saveLessonData", saveLessonData);
 
         return "lessonDetails";
     }
