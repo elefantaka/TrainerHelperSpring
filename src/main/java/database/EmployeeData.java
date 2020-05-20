@@ -15,15 +15,15 @@ public class EmployeeData {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private KindOfInstructor instructor;
+    private KindOfInstructor kindOfInstructor;
 
     public EmployeeData() {
     }
 
-    public EmployeeData(String name, String email, KindOfInstructor instructor){
+    public EmployeeData(String name, String email, KindOfInstructor kindOfInstructor){
         this.name = name;
         this.email = email;
-        this.instructor = instructor;
+        this.kindOfInstructor = kindOfInstructor;
     }
 
     public Long getId() {
@@ -50,12 +50,12 @@ public class EmployeeData {
         this.email = email;
     }
 
-    public KindOfInstructor getInstructor() {
-        return instructor;
+    public KindOfInstructor getKindOfInstructor() {
+        return kindOfInstructor;
     }
 
-    public void setInstructor(KindOfInstructor instructor) {
-        this.instructor = instructor;
+    public void setKindOfInstructor(KindOfInstructor kindOfInstructor) {
+        this.kindOfInstructor = kindOfInstructor;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class EmployeeData {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", instructor=" + instructor +
+                ", instructor=" + kindOfInstructor +
                 '}';
     }
 }

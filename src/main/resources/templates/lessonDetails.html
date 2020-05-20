@@ -9,11 +9,27 @@
 
     <title>Lesson Details</title>
 </head>
-<body>
+<body style="background-image: url(imiges/swimming.jpg); background-repeat: no-repeat; background-size: cover;">
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-info" style="background-color: lavender">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="/home"> Home </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/clients"> Students </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/employees"> Instructors </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/savedLessons"> Saved Lessons </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/signUp"> Sign up for lesson </a></li>
+        </ul>
+    </div>
+</nav>
+
+<p>
+
+</p>
 
 <div class="py-5">
 <table class="table table-row-cell table-primary table-bordered">
@@ -34,7 +50,7 @@
         <th th:text="${groupLesson.get().employeeData.id}"> </th>
         <th th:text="${groupLesson.get().employeeData.name}"> </th>
         <th th:text="${groupLesson.get().employeeData.email}"> </th>
-        <th th:text="${groupLesson.get().employeeData.instructor}"> </th>
+        <th th:text="${groupLesson.get().employeeData.kindOfInstructor}"> </th>
         <th th:text="${groupLesson.get().kindOfLesson}"> </th>
         <th th:text="${groupLesson.get().hour}"> </th>
         <th th:text="${groupLesson.get().maxGroupSize}"> </th>
