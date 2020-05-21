@@ -14,7 +14,7 @@
         .login-container{
             display: block;
             width: 20%;
-            height: 20%;
+            height: 25%;
             background-color: lavender;
             border-radius: 15px;
             position: absolute;
@@ -42,6 +42,7 @@
             <li class="nav-item active"><a class="nav-link" href="/employees"> Instructors </a></li>
             <li class="nav-item active"><a class="nav-link" href="/savedLessons"> Saved Lessons </a></li>
             <li class="nav-item active"><a class="nav-link" href="/signUp"> Sign up for lesson </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/deleteLesson"> Delete lesson </a></li>
         </ul>
     </div>
 </nav>
@@ -55,8 +56,8 @@
 <form class="form-group" action="#" th:action="@{/signUp}" th:object="${saveLessonData}" method="post">
     <label class="control-label" th:for="*{groupLessonData}">Lesson ID</label>
     <input class="border" type="number" max="8" th:field="*{groupLessonData}"/></p>
-    <p class="py-1 text-center"> Client ID <input class="border" type="number" max="6" th:field="*{clientData}"/>
-    <p > <input class="border"  type="submit" value="Sumbit"/> <input class="border" type="reset" value="Reset"/></p>
+    <p class="py-1 text-center"> Student ID <input class="border" type="number" max="6" th:field="*{clientData}"/></p>
+    <p> <input class="border"  type="submit" value="Sumbit"/> <input class="border" type="reset" value="Reset"/></p>
 </form>
 </div>
 </body>

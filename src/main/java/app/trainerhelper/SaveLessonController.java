@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class SaveLessonController {
 
@@ -31,25 +33,26 @@ public class SaveLessonController {
         return "savedLessonsPage";
     }
 
-//    @GetMapping("/savedLessons")
-//    public String delete( Model model){
-//
-//        SaveLessonData saveLessonData = new SaveLessonData();
-//        model.addAttribute("saveLessonData", saveLessonData);
-//
-//        return "savedLessonsPage";
-//    }
-//
-//    @PostMapping("/savedLessons")
-//    public String deleteSubmit(@RequestParam(name = "groupLessonData") GroupLessonData groupLessonData, @RequestParam(name = "clientData") ClientData clientData, @ModelAttribute SaveLessonData saveLessonData){
-//
-//        saveLessonData.setGroupLessonData(groupLessonData);
-//        saveLessonData.setClientData(clientData);
-//
-//        saveLessonRepo.delete(saveLessonData);
-//
-//        return "savedLessonsPage";
-//    }
+    @GetMapping("/deleteLesson")
+    public String delete( Model model){
+
+        SaveLessonData saveLessonData = new SaveLessonData();
+        model.addAttribute("saveLessonData", saveLessonData);
+
+        return "deleteLesson";
+    }
+
+    @PostMapping("/deleteLesson")
+    public String deleteSubmit(@RequestParam(name = "id") Long id, @ModelAttribute SaveLessonData saveLessonData){
+
+        if(id != null) {
+            saveLessonData.setId(id);
+
+            saveLessonRepo.delete(saveLessonData);
+        }
+
+        return "deleteLesson";
+    }
 
     @GetMapping("/signUp")
     public String signUp( Model model){
@@ -63,10 +66,12 @@ public class SaveLessonController {
     @PostMapping("/signUp")
     public String signUpSubmit(@RequestParam(name = "groupLessonData") GroupLessonData groupLessonData, @RequestParam(name = "clientData") ClientData clientData, @ModelAttribute SaveLessonData saveLessonData){
 
-        saveLessonData.setGroupLessonData(groupLessonData);
-        saveLessonData.setClientData(clientData);
+        if(!(groupLessonData.equals(null) && clientData.equals(null))) {
+            saveLessonData.setGroupLessonData(groupLessonData);
+            saveLessonData.setClientData(clientData);
 
-        saveLessonRepo.save(saveLessonData);
+            saveLessonRepo.save(saveLessonData);
+        }
 
         return "result";
     }

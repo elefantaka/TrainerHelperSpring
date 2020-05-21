@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head lang="en">
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,6 +35,7 @@
             <li class="nav-item active"><a class="nav-link" href="/employees"> Instructors </a></li>
             <li class="nav-item active"><a class="nav-link" href="/savedLessons"> Saved Lessons </a></li>
             <li class="nav-item active"><a class="nav-link" href="/signUp"> Sign up for lesson </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/deleteLesson"> Delete lesson </a></li>
         </ul>
     </div>
 </nav>
@@ -44,33 +45,35 @@
 </p>
 
 <div class="py-5">
-<table class="table table-primary table-bordered">
-    <th class="text-center" colspan="10"> Saved Lesson </th>
-    <tr>
-        <th>Intructor ID</th>
-        <th>Instructor Name</th>
-        <th>Instructor email</th>
-        <th>Instructor</th>
-        <th>Lesson</th>
-        <th>Hour</th>
-        <th>Max group size</th>
-        <th>Client ID</th>
-        <th>Client Name</th>
-        <th>Client Email</th>
-    </tr>
-    <tr th:each="saveLessonData: ${saveLessonData}">
-        <td th:text="${saveLessonData.groupLessonData.id}"></td>
-        <td th:text="${saveLessonData.groupLessonData.employeeData.name}"></td>
-        <td th:text="${saveLessonData.groupLessonData.employeeData.email}"></td>
-        <td th:text="${saveLessonData.groupLessonData.employeeData.kindOfInstructor}"></td>
-        <td th:text="${saveLessonData.groupLessonData.kindOfLesson}"></td>
-        <td th:text="${saveLessonData.groupLessonData.hour}"></td>
-        <td th:text="${saveLessonData.groupLessonData.maxGroupSize}"></td>
-        <td th:text="${saveLessonData.clientData.id}"></td>
-        <td th:text="${saveLessonData.clientData.name}"></td>
-        <td th:text="${saveLessonData.clientData.email}"></td>
-    </tr>
-</table>
+    <table class="table table-primary table-bordered">
+        <th class="text-center" colspan="10"> Saved Lesson </th>
+        <tr>
+            <th>ID</th>
+            <th>Lesson ID</th>
+            <th>Instructor ID</th>
+            <th>Instructor Name</th>
+            <th>Instructor email</th>
+            <th>Instructor</th>
+            <th>Lesson</th>
+            <th>Hour</th>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Email</th>
+        </tr>
+        <tr th:each="savedLessons: ${saveLessonData}">
+            <td th:text="${savedLessons.getId()}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().id}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().id}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().getEmployeeData().name}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().getEmployeeData().email}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().getEmployeeData().kindOfInstructor}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().kindOfLesson}"> </td>
+            <td th:text="${savedLessons.getGroupLessonData().hour}"> </td>
+            <td th:text="${savedLessons.getClientData().id}"> </td>
+            <td th:text="${savedLessons.getClientData().name}"> </td>
+            <td th:text="${savedLessons.getClientData().email}"> </td>
+        </tr>
+    </table>
 </div>
 
 <!--<div class="login-container">-->

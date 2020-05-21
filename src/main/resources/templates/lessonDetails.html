@@ -23,6 +23,7 @@
             <li class="nav-item active"><a class="nav-link" href="/employees"> Instructors </a></li>
             <li class="nav-item active"><a class="nav-link" href="/savedLessons"> Saved Lessons </a></li>
             <li class="nav-item active"><a class="nav-link" href="/signUp"> Sign up for lesson </a></li>
+            <li class="nav-item active"><a class="nav-link" href="/deleteLesson"> Delete lesson </a></li>
         </ul>
     </div>
 </nav>
@@ -42,8 +43,6 @@
         <th>Instructor</th>
         <th>Lesson</th>
         <th>Hour</th>
-        <th>Max Group Size</th>
-        <th>Date</th>
     </tr>
     <tr>
         <th th:text="${groupLesson.get().id}"> </th>
@@ -53,9 +52,6 @@
         <th th:text="${groupLesson.get().employeeData.kindOfInstructor}"> </th>
         <th th:text="${groupLesson.get().kindOfLesson}"> </th>
         <th th:text="${groupLesson.get().hour}"> </th>
-        <th th:text="${groupLesson.get().maxGroupSize}"> </th>
-        <th th:text="${groupLesson.get().date}"> </th>
-
     </tr>
 </table>
 
